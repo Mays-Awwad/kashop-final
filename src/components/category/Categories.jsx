@@ -1,9 +1,21 @@
+import { Box, CircularProgress, Typography } from '@mui/material';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import React from 'react'
+import useCategories from '../../hooks/useCategories';
 
-function Categories() {
+export default function Categories() {
+
+const {data,isLoading,isError,error}=useCategories();
+
+    if(isLoading) return <CircularProgress />
+
+    if(isError) return <Typography color='red'>{error}</Typography>
+
   return (
-    <div>Categories</div>
+    <Typography component='section'>
+        {data.response.data.map((category) => <Box> <Typography>{category.name}</Typography></Box>)}
+    </Typography>
+
   )
 }
-
-export default Categories
