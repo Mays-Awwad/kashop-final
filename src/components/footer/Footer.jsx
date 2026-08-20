@@ -1,6 +1,4 @@
-import React from 'react'
-import item from './../../item';
-import Item from './../../Item';
+import React from 'react';
 
 
 export default function Footer({userName}) {
@@ -8,19 +6,7 @@ export default function Footer({userName}) {
   return (
     <>
     <div>Footer --{userName}</div>
-    {/*
-    <Item year={year}>
-      <ul>
-        <li>
-              item1
-        </li>
-        <li>
-          item2
-        </li>
-      </ul>
-    </Item>
-    */}
-   
+    
     </>
     
    
