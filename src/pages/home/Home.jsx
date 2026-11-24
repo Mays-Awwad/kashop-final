@@ -1,12 +1,17 @@
 import React from 'react'
 import  Typography  from '@mui/material/Typography'
+import Categories from '../../components/category/Categories'
+import Products from '../../components/product/Products'
+import { Alert } from '@mui/material';
+import useAuthStore from '../../api/store/useAuthStore';
 
 export default function Home() {
+  const token=useAuthStore((state)=>state.token);
   return (
     <div>
-      <Typography component='h1' variant='h3' sx={{backgroundColor:'green',fontSize:40}}>Hello! World</Typography>
-      <Typography component='p' variant='body1'>Hello! World</Typography>
-      <Typography component='p' variant='body2'>Hello! World</Typography>
+      {token? <Alert severity='success'>Welcome Back!</Alert>:''}
+        <Categories />
+        <Products />
     </div>
   )
 }
