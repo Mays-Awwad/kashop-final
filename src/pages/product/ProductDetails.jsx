@@ -26,7 +26,7 @@ export default function ProductDetails() {
 
      const handleAddToCart=()=>{
       if(!token){
-        Navigate('/login');
+        navigate('/login');
         return
       }
 
@@ -41,14 +41,14 @@ export default function ProductDetails() {
           <CardMedia
           component={'img'}
         sx={{ maxHeight:400,objectFit:'contain' }}
-        image={data.image}
+        image={data?.image}
       />
       </Card>
 
       <Box sx={{display:'flex',flexDirection: 'column',gap:2}}>
-          <Typography>{data.name}</Typography>
-          <Rating value={data.rate} readOnly />
-          <Typography variant={'h4'} color='primary'>${data.price}</Typography>
+          <Typography>{data?.name}</Typography>
+          <Rating value={data?.rate} readOnly />
+          <Typography variant={'h4'} color='primary'>${data?.price}</Typography>
 
           <Chip label={inStock?'In Stock' :'Out Of Stock' }
           color={inStock  ?"success" : "error"} 
@@ -67,7 +67,9 @@ export default function ProductDetails() {
        <Box sx={{p:2,mb:3,display:'grid',gridTemplateColumns:{
             xs:'1fr',md:'1fr 1fr'
         },gap:2,alignItems: 'center'}}>
-               {data.reviews.map( (review) => <ReviewItem review={review} /> )}
+               {data.reviews?.map((review, index) => (
+                   <ReviewItem key={review.id ?? index} review={review} />
+                    ))}
        </Box>
       
     </>

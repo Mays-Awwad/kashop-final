@@ -23,8 +23,8 @@ export default function Navbar() {
 
         <Box sx={{flexGrow:1}}>
           <Button color='inherit'  component={Link} to='/'>Home </Button>
-          <Button color='inherit'  component={Link} to=''>Profile </Button>
-          <Button color='inherit'  component={Link} to=''>Cart </Button>
+          <Button color='inherit'  component={Link} to='/'>Profile </Button>
+          <Button color='inherit'  component={Link} to='/'>Cart </Button>
           {token? <>
           <Button   color='inherit' component={Link} onClick={logout}>Logout</Button>
           </> : <>

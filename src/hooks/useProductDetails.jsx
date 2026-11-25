@@ -6,7 +6,7 @@ import axios from 'axios';
 export default function useProductDetails(id) {
 
     const getProductDetails=async ()=>{
-        /*onst response=await axiosInstance.get(`/Products/${id}`);*/
+
         const response=await axios.get(`https://knowledgeshop.runasp.net/api/Products/${id}`,
             {
                 headers:{
